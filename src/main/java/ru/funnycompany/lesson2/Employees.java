@@ -1,14 +1,14 @@
 package ru.honework.oop;
 
-public class Emploees {
-    public String name;
-    public String position;
-    public String email;
-    public String phone;
-    public long salery;
-    public int age;
+public class Employees {
+    protected String name;
+    protected String position;
+    protected String email;
+    protected String phone;
+    protected long salery;
+    protected int age;
 
-    public Emploees(String name, String position, String email,
+    protected Employees(String name, String position, String email,
                     String phone, long salery, int age) {
         this.name = name;
         this.position = position;
