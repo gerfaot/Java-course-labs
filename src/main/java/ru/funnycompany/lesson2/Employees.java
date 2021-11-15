@@ -1,4 +1,4 @@
-package ru.honework.oop;
+package ru.funnycompany.lesson2;
 
 public class Employees {
     protected String name;
@@ -8,8 +8,12 @@ public class Employees {
     protected long salery;
     protected int age;
 
-    protected Employees(String name, String position, String email,
-                    String phone, long salery, int age) {
+    protected Employees(String name,
+                        String position,
+                        String email,
+                        String phone,
+                        long salery,
+                        int age) {
         this.name = name;
         this.position = position;
         this.email = email;
