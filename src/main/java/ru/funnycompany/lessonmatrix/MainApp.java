@@ -16,12 +16,18 @@ public class MainApp {
                 {1, 1, 1}
 
         });
-        Matrix m3 = m1.sumMatrix(m2);
-        m3.getMatrix();
+        Matrix m6 = new Matrix(3,2);
+        Matrix m5 = new Matrix(3,3);
+        m5 = m1.sumMatrix(m2);
+        Matrix m7 = m2.sumMatrix(m6);
+        m5.getMatrix();
+        m7.getMatrix();
 
-        Matrix m4 = m1.substractMatrix(m3);
-        m4.getMatrix();
-        m4.transposeMatrix();
-        m4.getMatrix();
+        //Matrix m3 = m1.sumMatrix(m2);
+        //m3.getMatrix();
+        //Matrix m4 = m1.substractMatrix(m3);
+        //m4.getMatrix();
+        //m4.transposeMatrix();
+        //m4.getMatrix();
     }
 }
