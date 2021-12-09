@@ -30,7 +30,7 @@ public class Matrix {
     }
 
 
-    public Matrix subMatrix() {
+    private Matrix subMatrix() {
         Matrix resultMatrix = new Matrix(row, col);
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
@@ -39,6 +39,7 @@ public class Matrix {
         }
         return resultMatrix;
     }
+
 
     public Matrix sumMatrix(Matrix matrix) {
         Matrix resultMatrix = new Matrix(row, col);
@@ -51,25 +52,17 @@ public class Matrix {
             return resultMatrix;
         }
         System.out.println("Размеры матриц не совпадают");
-        return resultMatrix;
+        return null;
     }
+
 
     public boolean isMatrixSame(Matrix matrix) {
-        if (row != matrix.row || col != matrix.col) {
-            return false;
-        }
-        return true;
+        return row == matrix.row && col == matrix.col;
     }
 
-    public Matrix substractMatrix(Matrix matrix) {
-        matrix.subMatrix();
-        this.
-        for (int i = 0; i < matrix.row; i++) {
-            for (int j = 0; j < matrix.col; j++) {
-                matrix.data[i][j] = data[i][j] + matrix.data[i][j];
-            }
-        }
-        return matrix;
+
+    public Matrix subtractMatrix(Matrix matrix) {
+        return this.sumMatrix(matrix.subMatrix());
     }
 
 
@@ -83,18 +76,34 @@ public class Matrix {
     }
 
 
-    public void transposeMatrix() {
+    public Matrix transposeMatrix() {
+        Matrix resultMatrix = new Matrix(row, col);
         for (int i = 0; i < row; i++) {
             for (int j = i + 1; j < col; j++) {
                 int temp = data[i][j];
-                data[i][j] = data[j][i];
-                data[j][i] = temp;
+                resultMatrix.data[i][j] = data[j][i];
+                resultMatrix.data[j][i] = temp;
             }
         }
+        return resultMatrix;
     }
 
 
-
+    public Matrix multiplyMatrix(Matrix matrix) {
+        Matrix resultMatrix = new Matrix(row, matrix.col);
+        if (row != matrix.col) {
+            System.out.println("Умножение невозможно");
+            return null;
+        }
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < matrix.col; j++) {
+                for (int k = 0; k < col; k++) {
+                    resultMatrix.data[i][j] += data[i][k] * matrix.data[j][k];
+                }
+            }
+        }
+        return resultMatrix;
+    }
 
 }
 
